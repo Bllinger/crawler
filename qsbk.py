@@ -80,8 +80,7 @@ def start(self):
 
         input = raw_input()
         if input == "Q":
-            self.enable = False
-
+            break
         story = self.stories[item_index]
         item_index += 1
         print "作者：" + story[0] + "\n" + story[1] + "\n点赞数：" + story[2] + "\t评论数：" + story[3]
