@@ -6,6 +6,7 @@ import cookielib as ckl
 import re
 import qsbk
 import sina
+import lianjia
 import requests
 from bs4 import BeautifulSoup
 import lxml
@@ -68,7 +69,7 @@ def to_array_time(dt):
 
 
 if __name__ == '__main__':
-    sina.start()
+    lianjia.start()
     #set_sina_cookies()
     # cookies = get_sina_cookies()
     # print cookies
