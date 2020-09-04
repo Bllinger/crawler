@@ -13,7 +13,7 @@ def get_page(self, page_index):
         resp = urllib2.urlopen(request)
         page_code = resp.read().decode('utf-8')
 
-    except urllib2.URLError, e:
+    except urllib2.URLError as e:
         if hasattr(e, 'code'):
             print e.code
         if hasattr(e, 'reason'):
