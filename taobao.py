@@ -96,11 +96,11 @@ async def main():
     print("打开浏览器")
     browser = await launch(
                            #executablePath='C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe',
-                           headless=True,
+                           headless=False,
                            userDataDir=p1.resolve(), # "F:\\python\\crawler\\temp",
                            args=[
-                                 # "--disable-infobars",
-                                 # '--start-maximized',
+                                 "--disable-infobars",
+                                 '--start-maximized',
                                  #"--user-data-dir=./myUserDataDir",
                                  #"--load-extension=./runningJS/",
                                  #"--disable-extensions-except=./runningJS/",
@@ -117,21 +117,22 @@ async def main():
             }
         ''')
 
-    # width, height = await screen_size()
-    # print(str(width) + '\t' + str(height))
-    # await page.setViewport({'width': width, 'height': height})
-    #await page.goto('https://login.taobao.com/member/login.jhtml?redirectURL=https://www.taobao.com/')
+    width, height = await screen_size()
+    print(str(width) + '\t' + str(height))
+    await page.setViewport({'width': width, 'height': height})
+    await page.goto('https://v.taobao.com/v/content/live?catetype=704')
+    # await page.goto('https://www.taobao.com')
 
     print("开始访问")
-    resp = await page.goto('https://www.weibo.com')
+    # resp = await page.goto('https://www.weibo.com')
     await asyncio.sleep(3)
     print("开始截图")
-    #print(await page.title())
+    # #print(await page.title())
     await page.screenshot(path="2.png", fullPage=False)
     print("截图成功2")
     while not await page.waitForSelector('.WB_feed_handle', timeout=300000):
         pass
-    # while not await page.querySelector('.anchor-card-content'):
+    # while not await page.waitForSelector('.anchor-card-content', timeout=300000):
     #     pass
     print("页面加载成功")
     await page.screenshot(path="1.png", fullPage=False)
@@ -139,7 +140,7 @@ async def main():
     print(pq(await page.content()))
     #await get_data(db, page)
 
-    # await asyncio.sleep(10)
+    await asyncio.sleep(10)
     await page.close()
     await browser.close()
 
