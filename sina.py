@@ -156,6 +156,8 @@ def sava_cookies(browser):
 def start():
     try:
         cookies = get_sina_cookies()
+        for cookie in cookies:
+            print cookie
     except IOError, e:
         print e.message
         set_sina_cookies()

@@ -4,7 +4,7 @@ import asyncio
 from pathlib import Path
 from sys import path
 
-from pyppeteer import launch
+
 
 import pymysql
 from pyquery import PyQuery as pq

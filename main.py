@@ -69,7 +69,8 @@ def to_array_time(dt):
 
 
 if __name__ == '__main__':
-    lianjia.start()
+    lianjia.init()
+    #lianjia.start()
     #set_sina_cookies()
     # cookies = get_sina_cookies()
     # print cookies
